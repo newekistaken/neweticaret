@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>E-Ticaret Vize Sınavı Test Portalı | 100 Soru Açıklamalı</title>
+  <meta name="description" content="100 Soru ve detaylı açıklamalı çözümlerle E-Ticaret Vize Sınavına interaktif hazırlık platformu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --border: #e2e8f0;
+      --border-hover: #cbd5e1;
+      
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --primary-glow: rgba(37, 99, 235, 0.12);
+      
+      --success: #10b981;
+      --success-hover: #059669;
+      --success-light: #ecfdf5;
+      --success-border: #a7f3d0;
+      --success-text: #065f46;
+      
+      --danger: #ef4444;
+      --danger-hover: #dc2626;
+      --danger-light: #fef2f2;
+      --danger-border: #fecaca;
+      --danger-text: #991b1b;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1120;
+      --surface: #1e293b;
+      --surface-subtle: #0f172a;
+      --border: #334155;
+      --border-hover: #475569;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      
+      --success: #10b981;
+      --success-light: rgba(16, 185, 129, 0.14);
+      --success-border: rgba(16, 185, 129, 0.35);
+      --success-text: #6ee7b7;
+      
+      --danger: #f43f5e;
+      --danger-light: rgba(244, 63, 94, 0.14);
+      --danger-border: rgba(244, 63, 94, 0.35);
+      --danger-text: #fda4af;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Top Progress Bar */
+    .top-progress-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--surface-subtle);
+      z-index: 100;
+    }
+    .top-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #3b82f6, #10b981);
+      transition: width 0.3s ease;
+    }
+
+    /* Header Nav */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 4px;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px var(--primary-glow);
+    }
+
+    .brand-info h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .brand-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-progress {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .icon-btn:hover {
+      background: var(--surface-subtle);
+      color: var(--text-main);
+      border-color: var(--border-hover);
+    }
+
+    /* Main Container */
+    .app-container {
+      max-width: 1200px;
+      margin: 24px auto;
+      padding: 0 20px;
+      width: 100%;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 920px) {
+      .app-container {
+        grid-template-columns: 1fr;
+        margin: 16px auto 80px auto;
+        padding: 0 14px;
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 28px;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 20px 16px;
+      }
+    }
+
+    /* Quiz Panel */
+    .q-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .topic-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .topic-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .q-step-counter {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .question-title {
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.45;
+      margin-bottom: 26px;
+      letter-spacing: -0.015em;
+    }
+
+    /* Options */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .option-btn {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      font-family: var(--font-main);
+      outline: none;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-1.5px);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .opt-key-badge {
+      min-width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .opt-label-text {
+      flex: 1;
+      padding-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* Option States */
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    /* Correct Selected */
+    .option-btn.state-correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: var(--success-text) !important;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15);
+    }
+    .option-btn.state-correct .opt-key-badge {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+
+    /* Wrong Selected */
+    .option-btn.state-wrong {
+      background: var(--danger-light) !important;
+      border-color: var(--danger) !important;
+      color: var(--danger-text) !important;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.15);
+    }
+    .option-btn.state-wrong .opt-key-badge {
+      background: var(--danger);
+      color: #fff;
+      border-color: var(--danger);
+    }
+
+    /* Reveal Correct when wrong picked */
+    .option-btn.state-revealed {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: var(--success-text) !important;
+    }
+    .option-btn.state-revealed .opt-key-badge {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+
+    /* Feedback Box */
+    .feedback-panel {
+      display: none;
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      margin-bottom: 24px;
+      animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      border: 1.5px solid transparent;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-panel.fb-correct {
+      background: var(--success-light);
+      border-color: var(--success-border);
+    }
+
+    .feedback-panel.fb-wrong {
+      background: var(--danger-light);
+      border-color: var(--danger-border);
+    }
+
+    .fb-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+
+    .fb-correct .fb-title-row { color: var(--success-text); }
+    .fb-wrong .fb-title-row { color: var(--danger-text); }
+
+    .fb-correct-answer-pill {
+      background: var(--surface);
+      border: 1px solid var(--success-border);
+      color: var(--success-text);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.94rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fb-explanation-body {
+      color: var(--text-main);
+      font-size: 0.93rem;
+      line-height: 1.6;
+      background: var(--surface);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    [data-theme="dark"] .fb-explanation-body {
+      border-color: var(--border);
+    }
+
+    /* Action Buttons */
+    .quiz-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      font-family: var(--font-main);
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--surface-subtle);
+      border-color: var(--border-hover);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-danger-outline {
+      background: var(--surface);
+      border-color: var(--danger-border);
+      color: var(--danger);
+    }
+    .btn-danger-outline:hover:not(:disabled) {
+      background: var(--danger-light);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Sidebar */
+    .sidebar-sticky {
+      position: sticky;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .stat-quick-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .stat-mini-pill {
+      background: var(--surface-subtle);
+      padding: 8px 6px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .stat-mini-pill span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .stat-mini-pill strong {
+      font-size: 1.15rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--surface-subtle);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+    }
+
+    .filter-tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 6px 4px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-main);
+    }
+
+    .filter-tab-btn.active {
+      background: var(--surface);
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      max-height: 380px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .palette-grid::-webkit-scrollbar {
+      width: 5px;
+    }
+    .palette-grid::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    .pal-btn {
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .pal-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .pal-btn.current {
+      outline: 2px solid var(--primary);
+      outline-offset: 1px;
+      font-weight: 800;
+      border-color: var(--primary);
+    }
+
+    .pal-btn.is-correct {
+      background: var(--success-light);
+      color: var(--success-text);
+      border-color: var(--success-border);
+    }
+
+    .pal-btn.is-wrong {
+      background: var(--danger-light);
+      color: var(--danger-text);
+      border-color: var(--danger-border);
+    }
+
+    .btn-finish-test {
+      width: 100%;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      padding: 13px;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    }
+    .btn-finish-test:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    /* Result View */
+    #resultView {
+      display: none;
+      grid-column: 1 / -1;
+    }
+
+    .result-hero {
+      text-align: center;
+      padding: 30px 20px 20px 20px;
+    }
+
+    .score-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: conic-gradient(var(--primary) calc(var(--pct) * 1%), var(--surface-subtle) 0);
+      margin: 0 auto 18px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px var(--primary-glow);
+      position: relative;
+    }
+
+    .score-circle-inner {
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-circle-inner .pct-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .score-circle-inner .pct-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .result-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .result-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin: 0 auto 24px auto;
+    }
+
+    .stats-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .summary-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .summary-card span {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .summary-card strong {
+      font-size: 1.6rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+    }
+
+    .review-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: var(--transition);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .review-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .badge-c { background: var(--success-light); color: var(--success-text); border: 1px solid var(--success-border); }
+    .badge-w { background: var(--danger-light); color: var(--danger-text); border: 1px solid var(--danger-border); }
+    .badge-e { background: var(--surface-subtle); color: var(--text-muted); border: 1px solid var(--border); }
+
+    /* Footer / Keyboard hints */
+    .keyboard-hints {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 18px;
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+      flex-wrap: wrap;
+    }
+
+    .kbd {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+
+    /* Print styles */
+    @media print {
+      header, .sidebar-sticky, .quiz-actions, .filter-tabs, .header-controls {
+        display: none !important;
+      }
+      .app-container {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .card {
+        border: none !important;
+        box-shadow: none !important;
+      }
+      #resultView {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="top-progress-wrap">
+    <div class="top-progress-bar" id="topBar"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <div class="brand-area">
+        <div class="brand-icon">ET</div>
+        <div class="brand-info">
+          <h1>E-Ticaret Vize Sınavı</h1>
+          <p>100 Soru • Anlık Çözümlü & Açıklamalı Test Portalı</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="badge-progress" id="headerCountBadge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span id="headerProgressText">1 / 100</span>
+        </div>
+        
+        <button class="icon-btn" id="themeBtn" title="Tema Değiştir (Açık/Koyu)" onclick="toggleTheme()">
+          <svg id="themeIconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg id="themeIconMoon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn" id="audioToggleBtn" title="Sesli Bildirim Aç/Kapat" onclick="toggleAudio()">
+          <svg id="audioIconOn" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          <svg id="audioIconOff" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- App Body -->
+  <main class="app-container">
+    
+    <!-- Question Main View -->
+    <section class="card" id="quizCard">
+      <div class="q-meta-row">
+        <span class="topic-pill" id="topicBadge">Konu Başlığı</span>
+        <span class="q-step-counter" id="stepCounter">Soru 1 / 100</span>
+      </div>
+
+      <h2 class="question-title" id="questionText">Yükleniyor...</h2>
+
+      <!-- Options List -->
+      <div class="options-list" id="optionsContainer"></div>
+
+      <!-- Instant Feedback Panel -->
+      <div class="feedback-panel" id="feedbackPanel">
+        <div class="fb-title-row" id="fbHeader"></div>
+        <div class="fb-correct-answer-pill" id="fbCorrectPill"></div>
+        <div class="fb-explanation-body" id="fbBody"></div>
+      </div>
+
+      <!-- Navigation & Action Row -->
+      <div class="quiz-actions">
+        <button class="btn btn-secondary" id="btnPrev" onclick="navigateQuestion(-1)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          Önceki Soru
+        </button>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button class="btn btn-danger-outline" id="btnResetChoice" onclick="clearCurrentChoice()" style="display:none;">
+            Seçimi Temizle
+          </button>
+          
+          <button class="btn btn-primary" id="btnNext" onclick="navigateQuestion(1)">
+            Sonraki Soru
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Keyboard shortcuts hint -->
+      <div class="keyboard-hints">
+        <span>Klavye: <span class="kbd">A</span> <span class="kbd">B</span> <span class="kbd">C</span> <span class="kbd">D</span> Şık Seçimi</span>
+        <span><span class="kbd">←</span> Önceki</span>
+        <span><span class="kbd">→</span> Sonraki</span>
+        <span><span class="kbd">Delete</span> Sıfırla</span>
+      </div>
+    </section>
+
+    <!-- Sidebar Map -->
+    <aside class="sidebar-sticky" id="sidebarContainer">
+      <div class="card" style="padding: 20px;">
+        <div class="stat-quick-bar">
+          <div class="stat-mini-pill">
+            <span>Doğru</span>
+            <strong style="color:var(--success);" id="miniCorrect">0</strong>
+          </div>
+          <div class="stat-mini-pill">
+            <span>Yanlış</span>
+            <strong style="color:var(--danger);" id="miniWrong">0</strong>
+          </div>
+          <div class="stat-mini-pill">
+            <span>Kalan</span>
+            <strong style="color:var(--text-muted);" id="miniRemain">100</strong>
+          </div>
+        </div>
+
+        <div class="filter-tabs">
+          <button class="filter-tab-btn active" onclick="setPaletteFilter('all', this)">Tümü</button>
+          <button class="filter-tab-btn" onclick="setPaletteFilter('wrong', this)">Yanlış</button>
+          <button class="filter-tab-btn" onclick="setPaletteFilter('empty', this)">Boş</button>
+        </div>
+
+        <div class="palette-grid" id="paletteGrid"></div>
+
+        <button class="btn btn-finish-test" style="margin-top: 18px;" onclick="confirmFinish()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Sınavı Tamamla ve Sonuçları Gör
+        </button>
+      </div>
+    </aside>
+
+    <!-- Results Panel -->
+    <section class="card" id="resultView">
+      <div class="result-hero">
+        <div class="score-circle" id="scoreCircleWidget" style="--pct: 0;">
+          <div class="score-circle-inner">
+            <span class="pct-value" id="finalPct">0%</span>
+            <span class="pct-label">Başarı</span>
+          </div>
+        </div>
+        <h2 class="result-title" id="finalTitle">Sınav Tamamlandı</h2>
+        <p class="result-desc" id="finalSubtitle">Tüm sorulara verdiğin yanıtlar ve başarı analiz raporun aşağıda listelenmiştir.</p>
+
+        <div class="stats-summary-grid">
+          <div class="summary-card">
+            <span>Toplam Soru</span>
+            <strong id="resTotal">100</strong>
+          </div>
+          <div class="summary-card">
+            <span>Doğru</span>
+            <strong style="color:var(--success);" id="resCorrect">0</strong>
+          </div>
+          <div class="summary-card">
+            <span>Yanlış</span>
+            <strong style="color:var(--danger);" id="resWrong">0</strong>
+          </div>
+          <div class="summary-card">
+            <span>Boş</span>
+            <strong style="color:var(--text-muted);" id="resEmpty">0</strong>
+          </div>
+          <div class="summary-card">
+            <span>Net Puan</span>
+            <strong style="color:var(--primary);" id="resNet">0</strong>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px;">
+          <button class="btn btn-primary" onclick="restartQuiz()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Testi Yeniden Başlat
+          </button>
+          <button class="btn btn-secondary" onclick="window.print()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Raporu Yazdır / PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Review Filter -->
+      <div style="margin-top: 36px; border-top: 1px solid var(--border); padding-top: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+          <h3 style="font-size: 1.15rem; font-weight:700;">Detaylı Soru & Çözüm İncelemesi</h3>
+          <div class="filter-tabs" style="margin:0;">
+            <button class="filter-tab-btn active" onclick="filterReviewList('all', this)">Tümü (100)</button>
+            <button class="filter-tab-btn" onclick="filterReviewList('wrong', this)">Sadece Yanlışlar</button>
+            <button class="filter-tab-btn" onclick="filterReviewList('correct', this)">Sadece Doğrular</button>
+            <button class="filter-tab-btn" onclick="filterReviewList('empty', this)">Boş Bırakılanlar</button>
+          </div>
+        </div>
+
+        <div id="reviewContainer"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 100 Soru Veritabanı
+    const QUESTIONS = [[1,"E-ticaret aşağıdakilerden hangisini ifade eder?",["Mal, hizmet ve bilginin elektronik ortamda alım, satım ve değişimini","Yalnızca mağazalarda nakit para ile yapılan alışverişi","Sadece işletmelerin üretim faaliyetlerini","Yalnızca internet üzerinden reklam yayımlamayı"],0,"E-ticaret Tanımı","E-ticaret; mal, hizmet ve bilginin elektronik ağlar üzerinden alımını, satımını ve değişimini kapsayan genel kavramdır."],[2,"İletişim perspektifinden e-ticaret nasıl tanımlanır?",["Yalnızca ürünlerin depolanması","Bilgi, mal, hizmet veya ödemelerin elektronik araçlarla sunulması","Sadece işletme içi personel yönetimi","Fiziksel mağazaların çoğaltılması"],1,"E-ticaret Perspektifleri","İletişim perspektifi; bilginin, ürün/hizmetlerin veya finansal ödemelerin telefon, bilgisayar gibi elektronik araçlarla sunulmasına odaklanır."],[3,"İşletme perspektifinden e-ticaretin temelinde hangi unsur bulunur?",["İşletme faaliyetleri ve iş akışının otomasyonunda teknolojinin uygulanması","Ürünlerin yalnızca yüz yüze tanıtılması","Üretimin tamamen el emeğiyle yapılması","Müşterilerle iletişimin kesilmesi"],0,"E-ticaret Perspektifleri","İşletme perspektifinde e-ticaret; iş süreçlerinin ve iş akışlarının otomasyonunda teknolojinin etkin şekilde uygulanmasını ifade eder."],[4,"E-business (e-iş) kavramı aşağıdakilerden hangisini kapsar?",["Sadece ürünün elektronik ortamda satılmasını","Yalnızca çevrimiçi ödeme yapılmasını","Pazarlamadan teslimata kadar iş süreçlerinin elektronik ortamda yürütülmesini","Yalnızca internet sitesinin tasarlanmasını"],2,"E-İş vs E-Ticaret","E-iş (e-business); sadece internetten satışı değil, tedarikten üretime, pazarlamadan satış sonrasına tüm kurumsal süreçlerin elektronikleşmesini kapsar."],[5,"E-commerce (e-ticaret) kavramının temel özelliği nedir?",["Ürün ve hizmetin belirli bir karşılık sonucunda el değiştirmesi","İşletme çalışanlarının işe alınması","Yalnızca elektronik posta gönderilmesi","Ücretsiz bilgi paylaşımı"],0,"E-İş vs E-Ticaret","E-ticaretin (e-commerce) en belirgin özelliği, alıcı ve satıcı arasında ürün veya hizmetin belirli bir ekonomik değer/bedel karşılığında el değiştirmesidir."],[6,"E-ticaretin tarihçesinde 1970'li yıllarda öne çıkan uygulama hangisidir?",["World Wide Web","Elektronik fon transferi (EFT)","Sosyal medya","Akıllı telefon uygulamaları"],1,"E-ticaret Tarihçesi","1970'li yıllarda finans sektöründe bankalar arası fonların elektronik transferi (EFT) e-ticaretin erken dönem öncüsü olmuştur."],[7,"1970'lerin sonu ve 1980'lerin başında şirketler arasında yaygınlaşan teknolojiler hangileridir?",["Elektronik veri değişimi (EDI) ve elektronik posta","Sanal gerçeklik ve blokzincir","Akıllı televizyon ve mobil uygulama","Sosyal ağlar ve video konferans"],0,"E-ticaret Tarihçesi","1970'lerin sonu ve 1980'lerde şirketler arası belge transferinde Elektronik Veri Değişimi (EDI) ve elektronik posta yaygınlaşmıştır."],[8,"1990'lı yıllarda e-ticaret açısından dönüm noktası olan gelişme hangisidir?",["Faks cihazının icadı","World Wide Web'in geliştirilmesi","İlk kredi kartının çıkarılması","Televizyonun yaygınlaşması"],1,"E-ticaret Tarihçesi","1990'lı yıllarda Tim Berners-Lee tarafından World Wide Web'in (WWW) geliştirilmesi internetin ticarileşmesinde en büyük dönüm noktasıdır."],[9,"Türkiye'de e-ticaretin ilk uygulaması olarak kitapta hangi gelişme belirtilmiştir?",["1992 yılında Merkez Bankası ile bankalar arasında EFT'nin başlaması","1998 yılında ilk sosyal medya sitesinin açılması","2000 yılında ilk akıllı telefonun satılması","1980 yılında ilk çevrimiçi mağazanın kurulması"],0,"Türkiye'de E-Ticaret","Türkiye'de e-ticaretin kurumsal miladı, 1992 yılında TCMB ile bankalar arasında faaliyete geçen EFT sistemidir."],[10,"Choi modeline göre e-ticaretin boyutlarını oluşturan unsurlar hangileridir?",["Mal, aracı ve proses","Alıcı, satıcı ve banka","Reklam, satış ve dağıtım","Üretim, tüketim ve vergi"],0,"Choi Modeli","Choi modeline göre bir ticaretin yapısını üç temel boyut belirler: Mal/Ürün (Product), Aracı (Agent) ve Süreç/Proses (Process)."],[11,"Geleneksel ticarette mal, aracı ve süreç boyutları nasıldır?",["Tamamı dijital","Tamamı fizikseldir","Yalnızca mal dijitaldir","Yalnızca süreç sanaldır"],1,"Ticaret Türleri","Geleneksel ticarette ürün fizikseldir, aracı fiziksel mağaza/kişidir ve satın alma-ödeme süreçleri yüz yüze/fiziksel gerçekleşir."],[12,"Tam elektronik ticaretin ayırt edici özelliği nedir?",["Ürünün fiziksel kargoyla gönderilmesi","Tüm boyutların dijital olması","Ödemenin yalnızca nakit yapılması","Satıcının mutlaka fiziksel mağazaya sahip olması"],1,"Tam E-Ticaret","Tam e-ticarette Choi modelindeki 3 boyutun tamamı (mal dijital, aracı dijital ortam/web, süreç/teslimat dijital) dijitaldir (ör. yazılım/e-kitap indirme)."],[13,"İnternetten kitap sipariş edilip kitabın kargoyla gönderilmesi neden tam elektronik ticaret değildir?",["Sipariş elektronik olmadığı için","Kitap fiziksel olarak teslim edildiği için","Ödeme banka üzerinden yapıldığı için","Alıcı bireysel tüketici olduğu için"],1,"Kısmi E-Ticaret","Sipariş ve ödeme dijital olsa bile ürün (kitap) kargo ile fiziksel teslim edildiği için bu işlem kısmi e-ticarettir."],[14,"Elektronik ticaret uygulamaları temel olarak hangi iki kategoriye ayrılır?",["Elektronik pazarlar ve örgütler arası sistemler","Kamu ve özel işletmeler","Üretim ve tüketim","Reklam ve halkla ilişkiler"],0,"E-Ticaret Uygulamaları","E-ticaret uygulamaları temelde alıcı-satıcıların buluştuğu 'Elektronik Pazarlar' ve kurumlar arası entegrasyonu sağlayan 'Örgütler Arası Sistemler' (IOS) olarak ikiye ayrılır."],[15,"Örgütler arası sistemlerin temel amacı aşağıdakilerden hangisidir?",["Bireylerin sosyal medya kullanımını artırmak","Firmalar arasında bilgi akışı, iletişim ve iş birliğini sağlamak","Yalnızca tüketicilere reklam göstermek","Fiziksel mağaza sayısını artırmak"],1,"Örgütler Arası Sistemler","Örgütler arası sistemlerin (IOS) temel amacı, farklı firmalar ve tedarikçiler arasında kesintisiz bilgi akışı, iletişim ve iş birliği sağlamaktır."],[16,"Aşağıdakilerden hangisi elektronik alışverişin gerçekleşme şekillerinden biridir?",["Sabit fiyat","Yalnızca takas","Sözlü anlaşma","Kapalı gişe satış"],0,"Elektronik Alışveriş Yöntemleri","Elektronik pazarlarda satış modellerinden biri ürünlerin önceden belirlenmiş sabit fiyat üzerinden listelenip satılmasıdır."],[17,"Doğrudan elektronik ticaretin özelliği hangisidir?",["Siparişin elektronik, teslimatın kargoyla yapılması","Sipariş, ödeme ve teslimatın elektronik ortamda gerçekleşmesi","Ürünün mutlaka fiziksel mağazadan alınması","Ödemenin yalnızca kapıda yapılması"],1,"Doğrudan E-Ticaret","Doğrudan e-ticaret; dijital ürünlerin sipariş, ödeme ve teslimat aşamalarının tamamının elektronik ağlar üzerinden yapılmasıdır."],[18,"E-ticaretin ekonomik hayatta etkilediği faaliyetlerden biri hangisidir?",["Tedarik süreçlerinin otomatikleşmesi","Yalnızca fiziksel mağaza dekorasyonu","Sadece yüz yüze personel görüşmeleri","Geleneksel posta dağıtımının artırılması"],0,"E-ticaretin Etkileri","E-ticaret tedarik zincirinde sipariş, faturalama ve envanter yönetim süreçlerinin otomatikleşmesini sağlar."],[19,"E-ticaretin pazarlama üzerindeki etkilerinden biri hangisidir?",["Pazar araştırmasının sınırlandırılması","Yeni pazarlama, satış ve promosyon tekniklerinin geliştirilmesi","Müşteriye ürün bilgisi verilmemesi","Satış sonrası iletişimin kaldırılması"],1,"Pazarlama ve E-Ticaret","E-ticaret; bireyselleştirilmiş pazarlama, dinamik fiyatlandırma ve çevrimiçi promosyon tekniklerinin gelişmesine zemin hazırlar."],[20,"E-ticaret tedarik süreçlerinde hangi sonucu sağlayabilir?",["Stok maliyetlerinin azalması","Tedarikçi sayısının zorunlu olarak sıfırlanması","Siparişlerin yalnızca telefonla alınması","Ürün takibinin imkânsızlaşması"],0,"Tedarik Zinciri","Tedarik süreçlerinin elektronikleşmesi, anlık talep takibi sağlayarak işletmelerin depo ve stok tutma maliyetlerini önemli ölçüde azaltır."],[21,"E-ticaretin finansman ve sigorta alanındaki etkilerinden biri hangisidir?",["Uluslararası yatırımcılara ulaşma imkânı","Finansal işlemlerin tamamen ortadan kalkması","Sigorta hizmetlerinin yalnızca yüz yüze sunulması","Yatırım seçeneklerinin azaltılması"],0,"Finans ve Sigorta","E-ticaret ve dijital finans platformları, şirketlerin küresel sermaye piyasalarına ve uluslararası yatırımcılara kolayca erişmesini sağlar."],[22,"Elektronik ticaretin ticari işlemlere katkısı hangisidir?",["Siparişlerin daha yavaş sonuçlandırılması","Siparişlerin elektronik ortamda hızlı sonuçlandırılması","İşlemlerin yalnızca posta yoluyla yapılması","Ödeme araçlarının kaldırılması"],1,"İşlem Hızı","Elektronik ortamda yürütülen sipariş, onay ve faturalama işlemleri geleneksel bürokrasiye kıyasla çok daha hızlı sonuçlandırılır."],[23,"E-ticaretin satış sonrası hizmetlere katkısı hangisidir?",["Ürün takibinin zorlaşması","Servis ve bakım hizmetlerinin kolaylaşması","Müşteri danışmanlığının sona ermesi","Ürün bilgilerinin gizlenmesi"],1,"Satış Sonrası Hizmetler","E-ticaret; çevrimiçi destek talepleri, dijital kılavuzlar ve uzaktan servis takibiyle satış sonrası hizmetleri kolaylaştırır."],[24,"E-ticaretin örgütler açısından yararlarından biri hangisidir?",["Yer sınırsızlığı ve kitlesel erişim","Rekabetin tamamen ortadan kalkması","Kesintisiz işlemlerin engellenmesi","Maliyetlerin zorunlu olarak yükselmesi"],0,"Örgütsel Yararlar","İnternet sayesinde işletmeler coğrafi konum kısıtı olmaksızın küresel ölçekte kitlesel müşteri kitlelerine 7/24 erişebilir."],[25,"E-ticaretin örgütler açısından etkilerinden biri olmayan seçenek hangisidir?",["Maliyet azaltımı","Kesintisiz işlem olanağı","Rekabetin yaygınlaşması","Rekabetin zorlaştırılması"],3,"Örgütsel Yararlar","E-ticaret piyasalara girişi kolaylaştırıp şeffaflığı artırdığı için rekabeti zorlaştırmaz; aksine rekabeti yaygınlaştırır ve artırır."],[26,"E-ticaretin yöneticilere sağladığı yararlardan biri hangisidir?",["Bilgiye daha yavaş erişim","Elektronikleşme ve çabukluk","Karar süreçlerinin uzaması","İş gruplarının ortadan kalkması"],1,"Yönetici Yararları","Yöneticiler e-ticaret araçları ve entegre veri tabanları sayesinde işletme verilerine anlık erişir, hızlı karar alır."],[27,"Aşağıdakilerden hangisi e-ticaretin tüketicilere sağladığı yararlardan biridir?",["Yer bağımsızlığı","Ürün alternatiflerinin azalması","Sadece mesai saatlerinde alışveriş","Fiziksel mağazaya gitme zorunluluğu"],0,"Tüketici Yararları","Tüketiciler fiziksel bir mağazaya gitmek zorunda kalmadan diledikleri yerden (yer bağımsız) alışveriş yapabilirler."],[28,"Tüketiciler açısından e-ticaretin yararlarından biri hangisidir?",["Kesintisiz hizmet alma (7/24)","Her alışverişte fiziksel sıra bekleme","Ürün karşılaştırma imkânının kalkması","İşlem süresinin uzaması"],0,"Tüketici Yararları","E-ticaret tüketicilere mesai saati kısıtlaması olmaksızın haftanın 7 günü 24 saat kesintisiz hizmet alma imkânı sunar."],[29,"E-ticaretin toplumsal yararlarından biri hangisidir?",["Trafik yoğunluğu ve hava kirliliğinin azalmasına katkı","Kamu hizmetlerine erişimin zorlaşması","Fiziksel hareketliliğin zorunlu hâle gelmesi","Bilgiye erişimin sınırlandırılması"],0,"Toplumsal Yararlar","İnsanların alışveriş veya işlemler için trafiğe çıkma ihtiyacının azalması, trafik yoğunluğunu ve karbon salınımını/hava kirliliğini azaltır."],[30,"E-ticaretin alıcı açısından öne çıkan sorunlarından biri hangisidir?",["Kalite ve güven sorunları","Ürün çeşitliliğinin artması","Zaman tasarrufu","Yer bağımsızlığı"],0,"Alıcı Sorunları","Ürüne dokunamama, satıcıyı fiziksel olarak tanımama ve geciken kargolar tüketicilerde kalite ve güven endişelerine yol açar."],[31,"E-ticaretin satıcılar açısından oluşturabileceği risklerden biri hangisidir?",["Küresel rekabet ortamında müşteriyi elde tutma zorluğu","Rakiplerin tamamen ortadan kalkması","Müşteri sayısının daima sabit kalması","Teknolojik altyapıya ihtiyaç duyulmaması"],0,"Satıcı Riskleri","İnternette alternatiflerin çokluğu ve fiyat karşılaştırma kolaylığı, satıcıların müşteriyi elde tutmasını ve sadakat oluşturmasını zorlaştırır."],[32,"E-ticaret hacmini etkileyen demografik faktörler arasında hangisi sayılır?",["Yaş ve cinsiyet","Yalnızca mağaza rengi","Ürün ambalajının şekli","Satıcının ofis konumu"],0,"Demografik Faktörler","Kullanıcıların yaş ve cinsiyet gibi demografik özellikleri internet kullanım alışkanlıklarını ve e-ticaret harcama tercihlerini doğrudan etkiler."],[33,"İnternet altyapısı ve yaygınlığının artması e-ticareti nasıl etkileyebilir?",["Çevrimiçi erişimi ve ticari faaliyetleri destekler","İnternet üzerinden alışverişi imkânsızlaştırır","Mobil ticareti ortadan kaldırır","İşletmelerin müşteri erişimini azaltır"],0,"Altyapı ve E-Ticaret","Geniş bant ve hızlı internet altyapısının yaygınlaşması, çevrimiçi platformlara erişimi ve e-ticaret işlem hacmini doğrudan artırır."],[34,"Kitapta e-ticarete altyapı oluşturan iletişim araçları arasında hangisi sayılır?",["Telefon","Yalnızca matbaa","Daktilo","Mekanik hesap makinesi"],0,"İletişim Araçları","Kitapta e-ticaretin tarihsel altyapısını oluşturan temel geleneksel iletişim araçları arasında telefon önde gelen araçlardan biridir."],[35,"Telefonun e-ticarette önemli bir araç olmasının nedenlerinden biri hangisidir?",["Müşteri ilişkileri ve satış sonrası destekte yaygın kullanılması","Yalnızca tek yönlü yayın yapması","Elektronik iletişimi engellemesi","Sadece dosya depolaması"],0,"Telefon ve E-Ticaret","Telefon; sesli çağrı merkezleri, sipariş teyidi, müşteri ilişkileri yönetimi (CRM) ve satış sonrası destekte vazgeçilmez bir araçtır."],[36,"Faksın e-ticaretteki işlevi aşağıdakilerden hangisidir?",["Sipariş, irsaliye ve fatura gibi belgeleri hızlı iletmek","Web sayfalarını görüntülemek","Kablosuz ağ kurmak","Veritabanı sorgulamak"],0,"Faks ve E-Ticaret","Faks cihazı, yazılı sözleşmelerin, irsaliyelerin, sipariş formlarının ve faturaların hızlıca karşı tarafa iletilmesini sağlamıştır."],[37,"Faksın dezavantajlarından biri hangisidir?",["Gönderilen belgenin kalitesinin düşük ve okunaksız olabilmesi","Belge iletimine imkân vermemesi","Yalnızca ses iletmesi","İnternet tarayıcısı gerektirmesi"],0,"Faks Sınırlılıkları","Termal veya düşük çözünürlüklü faks iletiminde belgeler soluk, bozuk veya okunaksız çıkabilmekte; bu da işlem hatalarına neden olabilmektedir."],[38,"Analog televizyonların e-ticaret açısından temel sınırlılığı nedir?",["Etkileşimli ticari işlemleri doğrudan yapamaması","Görüntü sunamaması","Reklam yayımlayamaması","Ses iletememesi"],0,"Televizyon ve E-Ticaret","Geleneksel analog televizyonlar yalnızca tek yönlü yayın yapabildiği için tüketicinin doğrudan etkileşimli alışveriş yapmasına imkân vermez."],[39,"Tek taraflı televizyon yayınları e-ticarette hangi faaliyetleri destekleyebilir?",["Reklam, tanıtım ve bilgilendirme","İki yönlü banka havalesi","Kullanıcılar arası dosya düzenleme","Veritabanı yönetimi"],0,"Televizyon ve E-Ticaret","Tek yönlü TV yayınları geniş kitlelere ulaşarak e-ticaret şirketlerinin reklam, marka bilinirliği ve ürün tanıtımı yapmasını destekler."],[40,"Smart TV'nin temel özelliği aşağıdakilerden hangisidir?",["İşletim sistemi sayesinde ek uygulama ve özellikler sunması","Sadece analog yayın alması","İnternete bağlanamaması","Yalnızca radyo yayını yapması"],0,"Smart TV Teknolojisi","Akıllı televizyonlar (Smart TV), barındırdıkları işletim sistemi ve internet bağlantısı sayesinde uygulama indirme ve etkileşimli işlem sunar."],[41,"DLNA teknolojisi ne sağlar?",["Kablosuz ağa bağlanabilen farklı cihazlar arasında veri akışını iletmek","Yalnızca yazıcıdan çıktı alınmasını","Telefon görüşmelerinin ücretlendirilmesini","Web alan adı kaydını"],0,"DLNA","DLNA (Digital Living Network Alliance); evdeki televizyon, bilgisayar ve telefon gibi uyumlu cihazların kablosuz ağ üzerinden medya paylaşmasını sağlar."],[42,"PVR/DVR özelliği ne işe yarar?",["Televizyon yayınlarını video olarak kaydetmeye","İnternet bağlantısını şifrelemeye","E-posta göndermeye","Dosyaları sıkıştırmaya"],0,"PVR/DVR","PVR/DVR (Personal/Digital Video Recorder) özelliği, canlı televizyon yayınlarının dijital depolama birimlerine video olarak kaydedilmesini sağlar."],[43,"EDI'nin açılımı ve temel işlevi hangisidir?",["Electronic Data Interchange; kurumlar arasında iş bilgisi ve belgelerin elektronik iletimi","Electronic Digital Internet; internet hızını artırma","External Data Interface; web sayfası tasarlama","Electronic Document Identity; kullanıcı kimliği oluşturma"],0,"EDI (Elektronik Veri Değişimi)","EDI (Electronic Data Interchange), standart formatlardaki iş belgelerinin (sipariş, fatura) kurumlar arasında elektronik olarak aktarımıdır."],[44,"EDI özellikle hangi e-ticaret türünde kabul görmüştür?",["Firma-firma (B2B)","Müşteri-müşteri (C2C)","Müşteri-kamu (C2G)","Yalnızca firma-çalışan"],0,"EDI ve B2B","EDI, yüksek hacimli kurumsal belge transferi gerektirdiğinden özellikle şirketler arası (B2B - Business to Business) ticarette standartlaşmıştır."],[45,"EDI'nin sağladığı yararlardan biri hangisidir?",["İşlemlerin ve bilgi aktarımının daha etkin yürütülmesi","Tüm belgelerin elle hazırlanması","İş süreçlerinin yavaşlaması","İşletmeler arası iletişimin kesilmesi"],0,"EDI Yararları","EDI sistemi veri girişindeki insan hatalarını ortadan kaldırır, kâğıt kullanımını bitirir ve işlemlerin hızlı, hatasız yürümesini sağlar."],[46,"EDI'nin dezavantajlarından biri hangisidir?",["Kurulum ve işletim maliyetlerinin yüksek olması","Standartlara ihtiyaç duymaması","Yalnızca bireysel kullanıcılar için tasarlanması","Veri iletememesi"],0,"EDI Sınırlılıkları","Özel yazılım, donanım, dönüştürücü ve güvenli iletişim hatları gerektirmesi nedeniyle EDI'nin kurulum ve bakım maliyetleri oldukça yüksektir."],[47,"EDI uygulamalarının sınırlı erişim özelliği ne anlama gelir?",["Tüketicilerin satıcılarla kolaylıkla iletişim kurmasına her zaman olanak vermemesi","Bütün internet kullanıcılarına ücretsiz hizmet vermesi","Herhangi bir protokol gerektirmemesi","Yalnızca televizyonlarda çalışması"],0,"EDI Sınırlılıkları","EDI kapalı devre ve özel formatlı sistemler kullandığından bireysel tüketicilerin doğrudan kullanımına açık değildir; erişimi kurumlarla sınırlıdır."],[48,"Telefon, faks ve televizyon hangi ortak amaçla e-ticaret aracı olabilir?",["İletişim ve ticari bilgilendirme sağlamak","Fiziksel ürün üretmek","Stokları otomatik olarak depolamak","Vergi mevzuatını belirlemek"],0,"İletişim Araçları","Telefon, faks ve TV; ticari mesajların, tekliflerin, siparişlerin ve bilgilendirmenin tüketicilere veya kurumlara ulaştırılmasını sağlar."],[49,"E-ticaret araçlarının gelişmesinde temel rol oynayan teknoloji alanı hangisidir?",["İletişim ve haberleşme teknolojileri","Yalnızca tarım makineleri","Baskı teknolojileri","Mekanik ulaşım araçları"],0,"Teknoloji Altyapısı","E-ticaretin ortaya çıkışı ve bugünkü seviyesine gelmesindeki en temel itici güç iletişim ve haberleşme teknolojilerindeki devrimdir."],[50,"İnteraktif dijital televizyon yayınlarının tek taraflı yayınlardan farkı nedir?",["İki yönlü etkileşim ve finansal işlemlere imkân sağlayabilmesi","Sadece ses iletmesi","Reklam gösterememesi","Yalnızca analog sinyal kullanması"],0,"Dijital TV","İnteraktif dijital TV yayınları çift yönlü veri akışını desteklediğinden izleyicinin kumandadan sipariş vermesine ve bankacılık işlemi yapmasına izin verir."],[51,"World Wide Web (WWW) aşağıdakilerden hangisidir?",["İnternet üzerinde metin, resim, ses ve video gibi verileri bir arada sunan çoklu ortam sistemi","Bilgisayarların fiziksel bakım sistemi","Yalnızca e-posta gönderme programı","Bir ödeme kartı türü"],0,"WWW","World Wide Web (WWW); internet altyapısı üzerinde hipermetin bağlantılarıyla metin, görsel, ses ve videoları bir arada sunan bilgi sistemidir."],[52,"WWW'nin temel amacı aşağıdakilerden hangisidir?",["Bilgilerin ve araştırmaların paylaşımını kolaylaştırmak","Bilgisayarların elektrik tüketimini artırmak","Sadece sesli görüşme sağlamak","Dosya depolamayı engellemek"],0,"WWW","WWW, ilk olarak CERN'de bilim insanları ve araştırmacılar arasında bilgi ve araştırma sonuçlarının hızlı paylaşımı amacıyla geliştirilmiştir."],[53,"Web ortamında iletişimi sağlayan protokol hangisidir?",["HTTP","SMTP","FTP","POP"],0,"Protokoller","Web tarayıcıları ile web sunucuları arasında web sayfalarının aktarılmasını sağlayan temel iletişim protokolü HTTP'dir (Hypertext Transfer Protocol)."],[54,"HTML'nin temel işlevi nedir?",["Web dokümanlarını biçimlendirmek","E-posta sunucusundan ileti almak","Kablosuz ağ şifresi üretmek","Para transferi yapmak"],0,"HTML","HTML (HyperText Markup Language), web sayfalarının görsel yapısını, metin düzenini ve multimedya yerleşimini belirleyen standart işaretleme dilidir."],[55,"Web sayfalarını görüntülemek için kullanılan arayüzlere ne ad verilir?",["Tarayıcı (browser)","Yönlendirici","Modem","Sunucu kasası"],0,"Tarayıcılar","Web sayfalarını sunucudan çekip kullanıcıya görsel olarak sunan yazılımlara web tarayıcısı (web browser) adı verilir."],[56,"Tarayıcıların temel görevi hangisidir?",["Web sayfalarına erişip HTML kodlarını çözerek görüntülemek","Elektronik çekleri imzalamak","Telefon sinyallerini yükseltmek","Fiziksel ürünleri paketlemek"],0,"Tarayıcılar","Web tarayıcılarının temel işlevi, sunuculardan gelen HTML, CSS ve JavaScript kodlarını çözümleyerek kullanıcı dostu grafik sayfaya dönüştürmektir."],[57,"FTP'nin açılımı ve temel işlevi hangisidir?",["File Transfer Protocol; bilgisayarlar arasında dosya aktarımı","Fast Text Program; web sayfası biçimlendirme","File Tracking Process; ürün takibi","Full Transfer Payment; ödeme alma"],0,"FTP","FTP (File Transfer Protocol), internete bağlı bilgisayarlar arasında büyük boyutlu dosyaların çift yönlü yüklenmesi ve indirilmesi için kullanılır."],[58,"FTP hangi tür aktarımı destekler?",["İnternete bağlı bilgisayarlar arasında iki yönlü dosya aktarımını","Yalnızca tek yönlü ses aktarımını","Sadece banka hesabı açmayı","Yalnızca görüntülü görüşmeyi"],0,"FTP","FTP protokolü, istemci ile sunucu arasında karşılıklı (iki yönlü - upload/download) dosya aktarımını destekleyen protokoldür."],[59,"Elektronik posta (e-posta) hangi amaçla kullanılır?",["Elektronik ortamda hızlı ve düşük maliyetli haberleşme","Yalnızca web sayfası tasarlama","Kablosuz cihaz eşleştirme","Fiziksel kargo gönderme"],0,"E-Posta","E-posta (elektronik posta); metin ve ekli dosyaların internet üzerinden saniyeler içinde ve son derece düşük maliyetle iletilmesini sağlar."],[60,"SMTP protokolünün temel görevi nedir?",["E-posta mesajlarının internet üzerinden iletilmesini sağlamak","E-postaları sunucudan indirmek","Web sayfalarını biçimlendirmek","Dosyaları sıkıştırmak"],0,"SMTP","SMTP (Simple Mail Transfer Protocol), e-posta mesajlarının gönderici istemciden veya sunucudan hedef sunucuya iletilmesini sağlayan protokoldür."],[61,"POP protokolü hangi işlemle ilişkilidir?",["E-postanın sunucudan alınması","Web sayfası adreslemesi","Dosya aktarımının şifrelenmesi","Kablosuz bağlantı kurmak"],0,"POP","POP (Post Office Protocol), e-posta kutusundaki iletilerin e-posta sunucusundan kullanıcı bilgisayarına indirilmesini sağlayan protokoldür."],[62,"E-posta sistemlerinin yaygınlaşmasında etkili olan avantaj hangisidir?",["Hızlı ve düşük maliyetli iletişim sağlaması","Yalnızca basılı belge göndermesi","Fiziksel posta gerektirmesi","Sadece aynı şehirde çalışması"],0,"E-Posta Avantajları","E-posta geleneksel posta ve kurye masraflarını bitirmiş, dünyanın her yerine anlık ve neredeyse maliyetsiz iletişim imkânı sunmuştur."],[63,"E-posta ilk geliştirildiğinde öncelikli olarak hangi içerik gönderiliyordu?",["Düz yazı mesajlar","Üç boyutlu video","Canlı yayın","Uygulama dosyaları"],0,"E-Posta Tarihi","E-postanın ilk geliştirildiği ARPANET döneminde sistem yalnızca basit düz yazı (ASCII plain text) mesajların aktarımı için tasarlanmıştı."],[64,"Web sayfaları arasında bağlantı kurulmasını sağlayan yapı hangisidir?",["Köprü bağlantılar (hyperlink)","Banka dekontu","Telefon santrali","Manyetik şerit"],0,"Web Mimarisi","Web sayfalarını birbirine bağlayan ve tıklandığında başka bir kaynağa yönlendiren temel bağlantı unsurlarına hiperlink (köprü) denir."],[65,"WWW ile HTML arasındaki ilişki hangisidir?",["HTML, web sayfalarının hazırlanmasında kullanılan işaretleme dilidir","WWW, HTML'nin ödeme sistemidir","HTML, internet bağlantısının fiziksel kablosudur","İkisi de yalnızca e-posta protokolüdür"],0,"WWW ve HTML","WWW ortamında yayınlanan web sayfalarının iskeleti ve biçimlendirmesi HTML işaretleme dili kullanılarak hazırlanır."],[66,"Web teknolojilerinin e-ticaretteki katkısı hangisidir?",["Metin, resim, ses ve video gibi içeriklerle etkileşimli sunum yapılması","Çevrimiçi bilgi paylaşımının engellenmesi","İşletmelerin internetten uzaklaşması","Dosya aktarımının imkânsızlaşması"],0,"Web Teknolojileri","Web teknolojileri; metin, resim, ses ve dinamik videoları birleştirerek zengin ve etkileşimli ürün tanıtım katalogları sunulmasını sağlar."],[67,"HTTP ile SMTP arasındaki doğru ayrım hangisidir?",["HTTP web iletişimiyle, SMTP e-posta iletimiyle ilişkilidir","İkisi de yalnızca dosya sıkıştırır","HTTP e-posta alır, SMTP web sayfası biçimlendirir","İkisi de kablosuz ağ standardıdır"],0,"HTTP vs SMTP","HTTP web sayfalarının tarayıcıya getirilmesinde kullanılırken; SMTP e-posta mesajlarının sunucular üzerinden iletilmesinde görev alır."],[68,"Bluetooth teknolojisinin temel kullanım alanlarından biri hangisidir?",["Yakın mesafedeki cihazlar arasında kablosuz veri iletişimi","Kıtalar arası kablolu internet omurgası kurmak","Yalnızca televizyon yayını yapmak","Banka hesaplarını denetlemek"],0,"Bluetooth","Bluetooth teknolojisi, birbirine yakın cihazlar arasında kablo ihtiyacı olmadan kısa mesafeli kablosuz veri iletişimi kurmak için kullanılır."],[69,"Bluetooth cihazları iletişim kurarken hangi yöntemi kullanır?",["Radyo dalgaları","Fiber optik kablo zorunluluğu","Uydu anteni","Kızılötesi yazıcı mürekkebi"],0,"Bluetooth","Bluetooth teknolojisi 2.4 GHz ISM frekans bandında çalışan düşük güçlü radyo dalgalarını kullanarak iletişim kurar."],[70,"Kitapta Bluetooth için belirtilen yaklaşık kısa iletişim mesafesi hangisidir?",["10-25 metre","100-250 kilometre","1-2 kilometre","500-700 metre"],0,"Bluetooth Menzili","Kitapta Bluetooth standardının temel etkin kapsama alanının genellikle 10 ile 25 metre arasında kısa mesafe olduğu ifade edilmektedir."],[71,"Bluetooth'un birlikte çalışabilirlik özelliği neyi ifade eder?",["Farklı üreticilerin uyumlu standarttaki cihazlarının birlikte çalışabilmesini","Yalnızca aynı marka cihazların çalışmasını","Cihazların internete bağlanamamasını","Her cihaz için ayrı kablo zorunluluğunu"],0,"Bluetooth Birlikte Çalışabilirlik","Birlikte çalışabilirlik (interoperability); farklı markaların ürettiği Bluetooth uyumlu cihazların sorunsuz şekilde eşleşip veri aktarabilmesidir."],[72,"Bluetooth'un güvenlik mekanizmalarından biri hangisidir?",["İletişim şifresi ve oturum anahtarı kullanımı","Verileri herkese açık yayımlama","Şifrelemeyi devre dışı bırakma","Cihaz kimliğini gizlememe"],0,"Bluetooth Güvenliği","Bluetooth protokolü yetkisiz erişimi engellemek için cihaz eşleştirme şifreleri (PIN) ve geçici oturum anahtarları ile şifreleme kullanır."],[73,"Bluetooth teknolojisinin cihazlar açısından avantajlarından biri hangisidir?",["Kısa mesafede daha az güç tüketerek iletişim kurabilmesi","Sürekli yüksek güçlü kablo bağlantısı gerektirmesi","Yalnızca sabit bilgisayarlarda çalışması","Her zaman ücretli lisans gerektirmesi"],0,"Bluetooth Avantajları","Bluetooth, taşınabilir ve mobil cihazların pil ömrünü korumak adına çok düşük güç tüketimiyle çalışacak şekilde tasarlanmıştır."],[74,"Wi-Fi'nin açılımı aşağıdakilerden hangisidir?",["Wireless Fidelity","World File Interface","Wide Frequency Internet","Web Fixed Information"],0,"Wi-Fi","Wi-Fi terimi 'Wireless Fidelity' ifadesinin kısaltmasıdır ve kablosuz yerel alan ağı (WLAN) standardını temsil eder."],[75,"Wi-Fi teknolojisi temel olarak ne sağlar?",["Kablosuz ağ bağlantısı ve veri transferi","Yalnızca telefon hattı üzerinden faks","Sadece televizyon kaydı","Elektronik çek imzalama"],0,"Wi-Fi","Wi-Fi teknolojisi yüksek hızlı kablosuz internet erişimi ve yerel ağ üzerindeki cihazlar arasında yüksek hacimli veri transferi sağlar."],[76,"Wi-Fi hangi ortamlarda kullanılabilir?",["Ev, iş yeri, okul kampüsü ve halka açık alanlarda","Yalnızca uydu kontrol merkezlerinde","Sadece banka kasalarında","Yalnızca kablolu telefon santrallerinde"],0,"Wi-Fi Kullanım Alanları","Wi-Fi; evler, ofisler, üniversite kampüsleri, kafeler ve havaalanları gibi kamusal ve özel her türlü kapalı/açık alanda yaygın kullanılır."],[77,"Bluetooth ile Wi-Fi arasındaki temel farklardan biri hangisidir?",["Bluetooth genellikle kısa mesafeli cihaz iletişimi; Wi-Fi ağ ve internet bağlantısı için kullanılır","İkisi de sadece e-posta göndermek içindir","Wi-Fi yalnızca ses aktarır, Bluetooth web sayfası sunar","Bluetooth kablolu, Wi-Fi mekanik bir sistemdir"],0,"Bluetooth vs Wi-Fi","Bluetooth kişisel alanlarda iki cihazı birbirine bağlamaya odaklanırken; Wi-Fi geniş alanlarda yüksek hızlı internet ve yerel ağ bağlantısı kurar."],[78,"Bluetooth'un yaygınlaşmasını destekleyen özellik hangisidir?",["Telif hakkı gerektirmeyen, herkese açık teknoloji olarak tanımlanması","Yalnızca tek üretici tarafından kullanılabilmesi","Her bağlantıda fiziksel kablo gerektirmesi","Sadece ücretli kurumsal ağlarda çalışması"],0,"Bluetooth Standartları","Bluetooth standardının açık bir teknoloji konsorsiyumu tarafından telifsiz ve küresel standart olarak sunulması hızla yaygınlaşmasını sağlamıştır."],[79,"Wi-Fi ile hangi işlem gerçekleştirilebilir?",["Bilgisayar ve çevre aygıtlarını birbirine bağlamak","Kâğıt faturayı otomatik imzalamak","Analog televizyon sinyalini üretmek","Kredi kartı basmak"],0,"Wi-Fi","Wi-Fi; bilgisayar, tablet, yazıcı ve akıllı cihazların fiziksel kablo çekmeden aynı yerel ağa bağlanmasını ve haberleşmesini sağlar."],[80,"Mobil kablosuz iletişim teknolojilerinin gelişmesinde temel ihtiyaç hangisidir?",["Hareket hâlindeki kullanıcılara iletişim ve internet erişimi sağlamak","Mobil cihazların veri alışverişini engellemek","Yalnızca sabit telefon kullanımını artırmak","İnternet hızını düşürmek"],0,"Mobil İletişim","Mobil teknolojilerin gelişimindeki temel itici güç, insanların sabit bir mekana bağlı kalmadan hareket halindeyken de internete erişebilmesidir."],[81,"Bluetooth hangi amaçla kullanılabilir?",["Cihazlar arasında dosya alışverişi yapmak","Yalnızca web alan adı satın almak","Fiziksel ürün taşımak","Kâğıt belge basmak"],0,"Bluetooth","Bluetooth iki telefon veya bilgisayar arasında fotoğraf, rehber veya dosya aktarımı yapmak için sıkça kullanılan bir kablosuz yöntemdir."],[82,"Gerçek zamanlı konum belirleme, kitapta hangi kablosuz teknoloji kullanım alanlarıyla birlikte ele alınmıştır?",["Bluetooth","Faks","Analog televizyon","SMTP"],0,"Bluetooth ve Konum Belirleme","Bluetooth işaretçileri (beacon) ve sinyal gücü ölçümü, kapalı mekanlarda gerçek zamanlı konum belirleme (RTLS) çözümlerinde kullanılır."],[83,"Wi-Fi üzerinden internete bağlanmak için temel olarak ne gerekir?",["Kablosuz ağa erişim","Faks makinesi","Elektronik çek","Analog televizyon anteni"],0,"Wi-Fi","Wi-Fi üzerinden internete bağlanabilmek için ortamda bir kablosuz erişim noktası (Access Point / modem) ve bu ağa erişim izni gerekir."],[84,"3G teknolojisinin geliştirilmesindeki temel amaçlardan biri hangisidir?",["Mobil cihazlarda daha hızlı ve etkin iletişim sağlamak","Mobil iletişimi yalnızca sesle sınırlandırmak","İnternet erişimini kaldırmak","Sadece sabit hatları desteklemek"],0,"3G Teknolojisi","3G (3. Nesil) mobil iletişim standardı, 2G'nin ses ağırlıklı yapısından çıkarak yüksek hızlı mobil veri ve internet erişimi sunmak için geliştirilmiştir."],[85,"3G sistemleri hangi tür veri iletimini mümkün kılar?",["Resim, grafik, video, animasyon, müzik ve ses gibi çoklu ortam verilerini","Yalnızca basılı metinleri","Sadece analog telefon sinyalini","Yalnızca faks belgelerini"],0,"3G Veri İletimi","3G teknolojisinin getirdiği bant genişliği sayesinde video akışı, görüntülü görüşme, ses, müzik ve yüksek çözünürlüklü grafikler iletilebilir."],[86,"3G'nin sunduğu yüksek hızların önemli sonuçlarından biri hangisidir?",["Kaliteli görüntü ve ses akışına imkân vermesi","Çevrimiçi hizmetleri durdurması","Dosya aktarımını engellemesi","Yalnızca kısa mesaj göndermesi"],0,"3G Medya Akışı","Yüksek veri iletim hızı, mobil kullanıcıların kesintisiz çevrimiçi müzik dinlemesini, video izlemesini ve görüntülü konuşmasını mümkün kılmıştır."],[87,"3G sistemleri için kitapta öngörülen ilk veri iletim hızı aralığı hangisidir?",["144 Kbps ile 2 Mbps","1 Kbps ile 10 Kbps","10 Mbps ile 100 Mbps","100 Mbps ile 1 Gbps"],0,"3G Hız Standartları","Kitapta 3G standardının ilk döneminde hareketli durumlarda 144 Kbps'den başlayıp sabit/durağan durumlarda 2 Mbps'ye varan hızlar hedeflendiği belirtilir."],[88,"Simetrik veri iletimi neyi ifade eder?",["İki yöndeki veri iletim oranlarının aynı olabilmesini","Yalnızca indirme yapılmasını","Yalnızca ses gönderilmesini","İnternet bağlantısının tek yönlü olmasını"],0,"Veri İletim Tipleri","Simetrik veri iletimi, internet bağlantısında veri indirme (download) ve veri yükleme (upload) hızlarının birbirine eşit olması durumudur."],[89,"Asimetrik veri iletimi neyi ifade eder?",["İki yöndeki veri iletim oranlarının farklı olabilmesini","Her iki yönde de veri aktarımının imkânsız olmasını","Yalnızca eşit hızda veri aktarılmasını","Verinin yalnızca fiziksel ortamda taşınmasını"],0,"Veri İletim Tipleri","Asimetrik veri iletimi, indirme (download) hızının yükleme (upload) hızından farklı (genellikle çok daha yüksek) olduğu iletim türüdür."],[90,"3G sistemlerinin gelişmesi hangi kullanıcı beklentisini karşılamaya yöneliktir?",["Mobil cihazlardan daha hızlı internet ve çoklu ortam erişimi","Mobil cihazlarda internetin kapatılması","Sadece sabit telefon görüşmesi","Yalnızca yazılı belge basımı"],0,"3G Beklentileri","3G teknolojisi, akıllı telefon kullanıcılarının her an yüksek hızlı internete ve çoklu ortam (multimedya) içeriklerine ulaşma talebini karşılamıştır."],[91,"Mobil iletişim teknolojilerinin e-ticaret açısından önemi hangisidir?",["Kullanıcıların ürün ve hizmetlere istedikleri yer ve zamanda erişebilmesi","Alışverişin yalnızca masaüstü bilgisayarda yapılması","Mobil kullanıcıların ticaretten dışlanması","Çevrimiçi ödeme seçeneklerinin azaltılması"],0,"Mobil Ticaret","Mobil teknolojiler sayesinde tüketiciler istedikleri yer ve zamanda (mekandan bağımsız) ürün arayabilir, karşılaştırabilir ve satın alabilir."],[92,"Akıllı telefonların e-ticarette önem kazanmasının nedenlerinden biri hangisidir?",["Kullanıcılara hareket hâlindeyken alışveriş ve hizmet erişimi sağlaması","Yalnızca telefon görüşmesi yapabilmesi","İnternet bağlantısı sunmaması","Ürün bilgilerini görüntüleyememesi"],0,"Mobil Ticaret","Akıllı telefonlar taşınabilirlikleri, dokunmatik ekranları ve mobil uygulamaları sayesinde hareket halindeyken alışverişi pratik ve yaygın hale getirmiştir."],[93,"Mobil uyumlu olmayan e-ticaret siteleri hangi riski taşır?",["Kullanıcıların rakip sitelere yönelmesi","Müşteri memnuniyetinin kesin olarak artması","İnternet hızının otomatik yükselmesi","Ürün çeşitliliğinin çoğalması"],0,"Mobil Uyumluluk","Mobil cihazlarla uyumlu (responsive) olmayan siteler kullanıcı deneyimini bozar; kullanıcılar siteden çıkarak mobil uyumlu rakip sitelere yönelir."],[94,"3G teknolojisi telekomünikasyon tarihinde hangi gelişmelerden sonra önemli bir aşama olarak değerlendirilir?",["Telefonun icadı ve hareket hâlindeki kullanıcılara iletişim sağlayan mobil teknolojiler","Faksın ve matbaanın icadı","Televizyon ve radyonun yaygınlaşması","Elektronik tabloların geliştirilmesi"],0,"Telekomünikasyon Tarihi","Telekomünikasyon tarihinde telefonun icadı birinci devrim, hareket halindeyken iletişim sağlayan hücresel mobil teknolojiler ise ikinci büyük aşamadır."],[95,"Mobil sistemlerin ortak işletim özelliği hangi amaca hizmet eder?",["Dünya genelinde kişisel mobil iletişimi daha hızlı ve verimli sağlamak","Cihazların birbirinden tamamen kopmasını sağlamak","Sadece yerel kablolu iletişim kurmak","İnternet kullanımını sınırlandırmak"],0,"Mobil Standartlar","Uluslararası standartlar ve dolaşım (roaming) özellikleri sayesinde kullanıcılar kendi mobil cihazlarıyla dünya genelinde kesintisiz iletişim kurabilir."],[96,"3G'nin çoklu ortam veri nakli kapsamında hangisi bulunur?",["Görüntü ve animasyon","Yalnızca basılı fatura","Sadece fiziksel ürün","Kâğıt çek"],0,"3G Çoklu Ortam","3G ağları çoklu ortam kapsamında hareketli görüntüler, video akışları, animasyonlar ve yüksek kaliteli ses iletimini kapsar."],[97,"Mobil internetin gelişmesi e-ticaret işletmelerinden ne tür bir uyum bekler?",["Mobil cihazlarla uyumlu kullanıcı deneyimi sunmalarını","Web sitelerini mobil erişime kapatmalarını","Yalnızca masaüstü arayüz kullanmalarını","Ürün bilgilerini azaltmalarını"],0,"Mobil Uyumluluk","Mobil internet kullanımı masaüstünü geçtiği için e-ticaret siteleri mobil cihaz ekranlarına kusursuz uyum sağlayan tasarımlar sunmak zorundadır."],[98,"Mobil geniş bant teknolojilerinin gelişmesi tüketicilerin beklentisini nasıl etkiler?",["Daha hızlı ve erişilebilir çevrimiçi hizmet beklentisini artırır","İnternet kullanımını gereksiz hâle getirir","Çevrimiçi alışverişi ortadan kaldırır","Sadece basılı katalog talebini artırır"],0,"Mobil Tüketici Davranışı","Mobil geniş bant (3G, 4G, 5G) tüketicilerde işlemlerin beklemeden, anında ve pürüzsüz gerçekleşmesi beklentisini (hızlı hizmet) artırmıştır."],[99,"3G sistemlerinin veri iletiminde hız artışı hangi hizmetleri destekler?",["Görüntülü ve çoklu ortam tabanlı mobil hizmetleri","Yalnızca analog faks","Sadece sabit hatlı telefon","Yalnızca basılı posta"],0,"3G Hizmetleri","3G ile gelen bant genişliği artışı; canlı mobil televizyon, görüntülü görüşme ve zengin multimedya uygulamalarını doğrudan desteklemiştir."],[100,"E-ticaretin mobil iletişim teknolojilerinden yararlanmasının temel sonucu hangisidir?",["Alışveriş ve bilgiye erişimin zaman ve mekân açısından esnekleşmesi","Alışverişin belirli saatlere zorunlu olarak bağlanması","Tüketicinin fiziksel mağazaya gitme zorunluluğu","İnternet üzerinden hizmet sunumunun sona ermesi"],0,"Mobil E-Ticaretin Geleceği","Mobil teknolojilerin e-ticarete en büyük katkısı, alışverişi belirli bir saate veya mekana bağlı kalmaktan kurtararak zaman ve mekan sınırlarını kaldırmasıdır."]];
+
+    // State
+    let currentIndex = 0;
+    const OPTION_KEYS = ['A', 'B', 'C', 'D'];
+    let userAnswers = new Array(QUESTIONS.length).fill(null);
+    let soundEnabled = true;
+    let currentPalFilter = 'all';
+
+    // LocalStorage Key
+    const STORAGE_KEY = 'eticaret_quiz_v1';
+
+    // Audio synthesizer (Zero external file dependencies)
+    let audioCtx = null;
+    function playBeep(isSuccess) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        if (isSuccess) {
+          osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+          osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.12); // A5
+          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.18);
+        } else {
+          osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(180, audioCtx.currentTime + 0.16);
+          gain.gain.setValueAtTime(0.09, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.2);
+        }
+      } catch (e) {
+        // AudioContext not allowed or not supported
+      }
+    }
+
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('audioIconOn').style.display = soundEnabled ? 'block' : 'none';
+      document.getElementById('audioIconOff').style.display = soundEnabled ? 'none' : 'block';
+    }
+
+    // Theme Manager
+    function initTheme() {
+      const savedTheme = localStorage.getItem('quiz_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      applyTheme(savedTheme);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('quiz_theme', theme);
+      document.getElementById('themeIconSun').style.display = (theme === 'dark') ? 'block' : 'none';
+      document.getElementById('themeIconMoon').style.display = (theme === 'dark') ? 'none' : 'block';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Save & Load
+    function loadSavedState() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed.answers) && parsed.answers.length === QUESTIONS.length) {
+            userAnswers = parsed.answers;
+          }
+          if (typeof parsed.lastIndex === 'number' && parsed.lastIndex >= 0 && parsed.lastIndex < QUESTIONS.length) {
+            currentIndex = parsed.lastIndex;
+          }
+        }
+      } catch (e) {}
+    }
+
+    function persistState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          answers: userAnswers,
+          lastIndex: currentIndex
+        }));
+      } catch (e) {}
+    }
+
+    // Palette Builder
+    function initPalette() {
+      const grid = document.getElementById('paletteGrid');
+      grid.innerHTML = '';
+      QUESTIONS.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'pal-btn';
+        btn.id = 'pal-item-' + idx;
+        btn.textContent = idx + 1;
+        btn.title = 'Soru ' + (idx + 1) + ': ' + q[4];
+        btn.onclick = () => {
+          currentIndex = idx;
+          renderQuestion();
+        };
+        grid.appendChild(btn);
+      });
+      updatePaletteStatus();
+    }
+
+    function updatePaletteStatus() {
+      let correctCount = 0;
+      let wrongCount = 0;
+      let answeredCount = 0;
+
+      QUESTIONS.forEach((q, idx) => {
+        const btn = document.getElementById('pal-item-' + idx);
+        if (!btn) return;
+
+        const ans = userAnswers[idx];
+        const correct = q[3];
+
+        btn.className = 'pal-btn';
+        if (idx === currentIndex) {
+          btn.classList.add('current');
+        }
+
+        if (ans !== null) {
+          answeredCount++;
+          if (ans === correct) {
+            btn.classList.add('is-correct');
+            correctCount++;
+          } else {
+            btn.classList.add('is-wrong');
+            wrongCount++;
+          }
+        }
+
+        // Apply quick filter visibility
+        if (currentPalFilter === 'wrong') {
+          btn.style.display = (ans !== null && ans !== correct) ? 'flex' : 'none';
+        } else if (currentPalFilter === 'empty') {
+          btn.style.display = (ans === null) ? 'flex' : 'none';
+        } else {
+          btn.style.display = 'flex';
+        }
+      });
+
+      // Update counters
+      document.getElementById('miniCorrect').textContent = correctCount;
+      document.getElementById('miniWrong').textContent = wrongCount;
+      document.getElementById('miniRemain').textContent = (QUESTIONS.length - answeredCount);
+      document.getElementById('headerProgressText').textContent = (currentIndex + 1) + ' / ' + QUESTIONS.length;
+      
+      const overallPercent = Math.round((answeredCount / QUESTIONS.length) * 100);
+      document.getElementById('topBar').style.width = overallPercent + '%';
+    }
+
+    function setPaletteFilter(filter, tabEl) {
+      currentPalFilter = filter;
+      document.querySelectorAll('.filter-tabs .filter-tab-btn').forEach(b => b.classList.remove('active'));
+      if (tabEl) tabEl.classList.add('active');
+      updatePaletteStatus();
+    }
+
+    // Render Question
+    function renderQuestion() {
+      const q = QUESTIONS[currentIndex];
+      const qNum = q[0];
+      const qText = q[1];
+      const qOptions = q[2];
+      const correctIdx = q[3];
+      const qTopic = q[4];
+      const qExplanation = q[5];
+
+      // Meta
+      document.getElementById('topicBadge').textContent = qTopic;
+      document.getElementById('stepCounter').textContent = 'Soru ' + (currentIndex + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('questionText').textContent = qNum + '. ' + qText;
+
+      const optContainer = document.getElementById('optionsContainer');
+      optContainer.innerHTML = '';
+
+      const userChoice = userAnswers[currentIndex];
+      const isAnswered = (userChoice !== null);
+
+      qOptions.forEach((optText, optIdx) => {
+        if (!optText) return;
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+
+        if (isAnswered) {
+          btn.disabled = true;
+          if (userChoice === optIdx) {
+            if (userChoice === correctIdx) {
+              btn.classList.add('state-correct');
+            } else {
+              btn.classList.add('state-wrong');
+            }
+          } else if (optIdx === correctIdx && userChoice !== correctIdx) {
+            btn.classList.add('state-revealed');
+          }
+        } else {
+          btn.onclick = () => selectOption(optIdx);
+        }
+
+        btn.innerHTML = `
+          <span class="opt-key-badge">${OPTION_KEYS[optIdx]}</span>
+          <span class="opt-label-text">${optText}</span>
+        `;
+        optContainer.appendChild(btn);
+      });
+
+      // Feedback Panel
+      const fbPanel = document.getElementById('feedbackPanel');
+      const fbHeader = document.getElementById('fbHeader');
+      const fbPill = document.getElementById('fbCorrectPill');
+      const fbBody = document.getElementById('fbBody');
+
+      if (isAnswered) {
+        fbPanel.style.display = 'block';
+        if (userChoice === correctIdx) {
+          fbPanel.className = 'feedback-panel fb-correct';
+          fbHeader.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Tebrikler, Doğru Yanıt!
+          `;
+          fbPill.style.display = 'none';
+        } else {
+          fbPanel.className = 'feedback-panel fb-wrong';
+          fbHeader.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Yanlış Seçenek!
+          `;
+          fbPill.style.display = 'flex';
+          fbPill.innerHTML = `
+            <strong>Doğru Seçenek:</strong>
+            <span style="font-family:var(--font-mono);font-weight:700;">${OPTION_KEYS[correctIdx]})</span>
+            <span>${qOptions[correctIdx]}</span>
+          `;
+        }
+        fbBody.innerHTML = '<strong>Detaylı Açıklama:</strong> ' + qExplanation;
+      } else {
+        fbPanel.style.display = 'none';
+      }
+
+      // Actions
+      document.getElementById('btnPrev').disabled = (currentIndex === 0);
+      document.getElementById('btnNext').textContent = (currentIndex === QUESTIONS.length - 1) ? 'Son Soru' : 'Sonraki Soru';
+      document.getElementById('btnResetChoice').style.display = isAnswered ? 'inline-flex' : 'none';
+
+      updatePaletteStatus();
+      persistState();
+    }
+
+    function selectOption(choiceIdx) {
+      if (userAnswers[currentIndex] !== null) return;
+      userAnswers[currentIndex] = choiceIdx;
+      
+      const isCorrect = (choiceIdx === QUESTIONS[currentIndex][3]);
+      playBeep(isCorrect);
+      
+      renderQuestion();
+    }
+
+    function clearCurrentChoice() {
+      userAnswers[currentIndex] = null;
+      renderQuestion();
+    }
+
+    function navigateQuestion(delta) {
+      const target = currentIndex + delta;
+      if (target >= 0 && target < QUESTIONS.length) {
+        currentIndex = target;
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Keyboard support
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('resultView').style.display === 'block') return;
+
+      const key = e.key.toUpperCase();
+      if (['A', 'B', 'C', 'D'].includes(key)) {
+        const idx = OPTION_KEYS.indexOf(key);
+        if (idx !== -1 && userAnswers[currentIndex] === null) {
+          selectOption(idx);
+        }
+      } else if (e.key === 'ArrowRight') {
+        navigateQuestion(1);
+      } else if (e.key === 'ArrowLeft') {
+        navigateQuestion(-1);
+      } else if (e.key === 'Delete' || e.key === 'Backspace') {
+        if (userAnswers[currentIndex] !== null) {
+          clearCurrentChoice();
+        }
+      }
+    });
+
+    // Finish & Results
+    function confirmFinish() {
+      const unanswered = userAnswers.filter(x => x === null).length;
+      if (unanswered > 0) {
+        const confirmMsg = `Henüz yanıtlamadığınız ${unanswered} soru bulunuyor. Sınavı tamamlayıp sonuç raporunu görmek istiyor musunuz?`;
+        if (!confirm(confirmMsg)) return;
+      }
+      showResults();
+    }
+
+    function showResults() {
+      document.getElementById('quizCard').style.display = 'none';
+      document.getElementById('sidebarContainer').style.display = 'none';
+      document.getElementById('resultView').style.display = 'block';
+
+      let correct = 0;
+      let wrong = 0;
+      let empty = 0;
+
+      QUESTIONS.forEach((q, i) => {
+        const ans = userAnswers[i];
+        if (ans === null) empty++;
+        else if (ans === q[3]) correct++;
+        else wrong++;
+      });
+
+      const netScore = Math.max(0, correct - (wrong / 4)).toFixed(2);
+      const successPct = Math.round((correct / QUESTIONS.length) * 100);
+
+      document.getElementById('resTotal').textContent = QUESTIONS.length;
+      document.getElementById('resCorrect').textContent = correct;
+      document.getElementById('resWrong').textContent = wrong;
+      document.getElementById('resEmpty').textContent = empty;
+      document.getElementById('resNet').textContent = netScore;
+      document.getElementById('finalPct').textContent = successPct + '%';
+      
+      const scoreCircle = document.getElementById('scoreCircleWidget');
+      scoreCircle.style.setProperty('--pct', successPct);
+
+      const titleEl = document.getElementById('finalTitle');
+      const subEl = document.getElementById('finalSubtitle');
+
+      if (successPct >= 80) {
+        titleEl.textContent = 'Olağanüstü Başarı! 🌟';
+        subEl.textContent = 'E-Ticaret vize konularına son derece hakimsiniz. Tebrik ederiz!';
+      } else if (successPct >= 60) {
+        titleEl.textContent = 'Harika Bir Performans! 👏';
+        subEl.textContent = 'Vize sınavını başarıyla geçmek için hazırsınız. Yanlış yaptığınız birkaç konuya göz atmanız yeterli olacaktır.';
+      } else {
+        titleEl.textContent = 'Çalışmaya Devam! 📚';
+        subEl.textContent = 'Aşağıdaki çözümlü açıklamaları inceleyerek eksiklerinizi hızla pekiştirebilirsiniz.';
+      }
+
+      buildReviewCards('all');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function buildReviewCards(filterType) {
+      const container = document.getElementById('reviewContainer');
+      container.innerHTML = '';
+
+      QUESTIONS.forEach((q, i) => {
+        const userChoice = userAnswers[i];
+        const correctIdx = q[3];
+        const isCorrect = userChoice === correctIdx;
+        const isEmpty = userChoice === null;
+
+        if (filterType === 'wrong' && (isEmpty || isCorrect)) return;
+        if (filterType === 'correct' && !isCorrect) return;
+        if (filterType === 'empty' && !isEmpty) return;
+
+        let badgeHtml = '';
+        if (isEmpty) {
+          badgeHtml = '<span class="review-badge badge-e">BOŞ</span>';
+        } else if (isCorrect) {
+          badgeHtml = '<span class="review-badge badge-c">✔ DOĞRU</span>';
+        } else {
+          badgeHtml = '<span class="review-badge badge-w">✖ YANLIŞ</span>';
+        }
+
+        const card = document.createElement('div');
+        card.className = 'review-item';
+        card.innerHTML = `
+          <div class="review-header">
+            <div>
+              <strong style="font-size:1.02rem;">Soru ${q[0]}</strong>
+              <span style="font-size:0.8rem; color:var(--text-muted); margin-left:8px; font-weight:600;">[${q[4]}]</span>
+            </div>
+            ${badgeHtml}
+          </div>
+          <p style="font-weight:600; font-size:1rem; margin-bottom:12px; color:var(--text-main);">${q[1]}</p>
+          <div style="font-size:0.92rem; line-height:1.6; margin-bottom:12px;">
+            <div style="margin-bottom:4px;">
+              <span style="color:var(--text-muted);font-weight:600;">Senin Yanıtın:</span>
+              <strong style="${isEmpty ? 'color:var(--text-muted);' : isCorrect ? 'color:var(--success-text);' : 'color:var(--danger-text);'}">
+                ${isEmpty ? 'Boş Bırakıldı' : OPTION_KEYS[userChoice] + ') ' + q[2][userChoice]}
+              </strong>
+            </div>
+            <div>
+              <span style="color:var(--text-muted);font-weight:600;">Doğru Yanıt:</span>
+              <strong style="color:var(--success-text);">
+                ${OPTION_KEYS[correctIdx]}) ${q[2][correctIdx]}
+              </strong>
+            </div>
+          </div>
+          <div style="background:var(--surface-subtle); padding:12px 14px; border-radius:var(--radius-sm); font-size:0.88rem; color:var(--text-muted); border-left:3px solid var(--primary);">
+            <strong style="color:var(--text-main);">Çözüm Açıklaması:</strong> ${q[5]}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterReviewList(type, tabEl) {
+      document.querySelectorAll('#resultView .filter-tab-btn').forEach(b => b.classList.remove('active'));
+      if (tabEl) tabEl.classList.add('active');
+      buildReviewCards(type);
+    }
+
+    function restartQuiz() {
+      if (!confirm('Tüm yanıtlarınız sıfırlanacak ve sınava baştan başlayacaksınız. Emin misiniz?')) return;
+      userAnswers = new Array(QUESTIONS.length).fill(null);
+      currentIndex = 0;
+      localStorage.removeItem(STORAGE_KEY);
+      
+      document.getElementById('quizCard').style.display = 'block';
+      document.getElementById('sidebarContainer').style.display = 'block';
+      document.getElementById('resultView').style.display = 'none';
+      
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Init
+    initTheme();
+    loadSavedState();
+    initPalette();
+    renderQuestion();
+  </script>
+</body>
+</html>
